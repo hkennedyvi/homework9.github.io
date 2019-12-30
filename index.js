@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-//const util = require("util");
+const axios = require("axios");
 
 inquirer.prompt([
         {
@@ -18,23 +18,29 @@ inquirer.prompt([
                 "red"
             ]
         }
-    ]).then(function(data) {
-        var filename = data.name.toLowerCase().split(' ').join('') + ".json";
+    ]).then(function({ name }) {
+        const queryUrl = `https://api.github.com/users/${name}/repos?per_page=100`;
 
-  fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
+        axios.get(queryUrl).then(function(results) {
+            const repoNames = results.data.map(function(repo) {
+                return repo.name;
+            });
 
-    if (err) {
-      return console.log(err);
-    }
+            const repoNamesStr = repoNames.join("\n");
 
-    console.log("Success!");
+            fs.writeFile("repos.txt", repoNamesStr, function(err) {
+                if (err) {
+                    throw err;
+                }
 
-  });
-});
-
-
-
-
+                console.log(`${repoNames}`);
+            });
+        });
+    });
+  
+  
+  
+        
 
 
 /*
