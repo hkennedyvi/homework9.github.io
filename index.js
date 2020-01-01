@@ -1,5 +1,9 @@
 const inquirer = require("inquirer");
-const fs = require("fs");
+const fs = require('fs');
+   /* convertFactory = require('electron-html-to');
+ const conversion = convertFactory({
+  converterPath: convertFactory.converters.PDF
+});*/
 const axios = require("axios");
 
 inquirer.prompt([
@@ -35,6 +39,8 @@ inquirer.prompt([
                         appBlog, + "\n" + appProfile, + "\n" + appRepos,
                         appFollowers, + "\n" + appFollowing];
         console.log(fullApp);
+
+        
 
         fs.writeFile("application.txt", fullApp, function (err) {
             if (err) {
