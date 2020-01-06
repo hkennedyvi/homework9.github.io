@@ -33,15 +33,23 @@ inquirer.prompt([
     const appLocation = results.data.location;
     const appBio = results.data.bio;
     const appBlog = results.data.blog;
-    const appProfile = results.data.url;
+    const appProfile = results.data.html_url;
     const appRepos = results.data.public_repos;
     const appFollowers = results.data.followers;
     const appFollowing = results.data.following;
+    const appPicture = results.data.avatar_url;
 
     const data = {
       appName: appName,
       appLocation: appLocation,
       color: color,
+      appBio: appBio,
+      appBlog: appBlog,
+      appProfile: appProfile,
+      appRepos: appRepos,
+      appFollowers: appFollowers,
+      appFollowing: appFollowing,
+      appPicture: appPicture
     }
 
     const html = generateHTML(data);
@@ -51,8 +59,7 @@ inquirer.prompt([
       appBlog, + "\n" + appProfile, + "\n" + appRepos,
       appFollowers, + "\n" + appFollowing];
     console.log(fullApp);
-    console.log(color);
-    console.log(html);
+    
 
     return writeFileAsync("index.html", html);
     /*
