@@ -187,12 +187,24 @@ function generateHTML(data) {
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="card">Public Repositories:${data.appRepos}</div>
-          <div class="card">Github Stars:</div>
+          <div class="card">
+          <h4>Public Repositories:</h4>
+          <h4>${data.appRepos}</h4>
+          </div>
+          <div class="card">
+          <h4>Github Stars:</h4>
+          <h4>0</h4>
+          </div>
         </div>
         <div class="col">
-          <div class="card">Followers:${data.appFollowers}</div>
-          <div class="card">Following:${data.appFollowing}</div>
+          <div class="card">
+          <h4>Followers:</h4>
+          <h4>${data.appFollowers}</h4>
+          </div>
+          <div class="card">
+          <h4>Following:</h4>
+          <h4>${data.appFollowing}</h4>
+          </div>
         </div>
       </div>
     </div>
