@@ -137,6 +137,11 @@ function generateHTML(data) {
            padding-left: 100px;
            padding-right: 100px;
            }
+
+           .bio {
+            text-align: center;
+            padding-top: 50px;
+          }
   
            .row {
              display: flex;
@@ -185,6 +190,7 @@ function generateHTML(data) {
       </h4>
     </div>
     <div class="container">
+    <div class="bio"><h5>${data.appBio}</h5></div>
       <div class="row">
         <div class="col">
           <div class="card">
