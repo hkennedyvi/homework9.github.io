@@ -1,8 +1,17 @@
 {
   "name": "homework9.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node Project",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "inquirer": "^7.0.1",
+    "utility": "^1.16.3",
+    "electron-html-to": "^2.6.0"
+  },
+  "devDependencies": {
+    "electron": "1.8.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,15 +19,10 @@
     "type": "git",
     "url": "git+https://github.com/hkennedyvi/homework9.github.io.git"
   },
-  "author": "",
+  "author": "Howard Kennedy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hkennedyvi/homework9.github.io/issues"
   },
-  "homepage": "https://github.com/hkennedyvi/homework9.github.io#readme",
-  "dependencies": {
-    "axios": "^0.19.0",
-    "inquirer": "^7.0.1",
-    "utility": "^1.16.3"
-  }
+  "homepage": "https://github.com/hkennedyvi/homework9.github.io#readme"
 }

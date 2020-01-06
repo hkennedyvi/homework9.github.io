@@ -1,11 +1,11 @@
 const { generateHTML } = require("./generateHTML");
 const inquirer = require("inquirer");
-const fs = require("fs");
 const util = require("util");
-/* convertFactory = require('electron-html-to');
+const fs = require("fs");
+convertFactory = require("electron-html-to");
 const conversion = convertFactory({
-converterPath: convertFactory.converters.PDF
-});*/
+  converterPath: convertFactory.converters.PDF
+});
 const axios = require("axios");
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -53,50 +53,24 @@ inquirer.prompt([
     }
 
     const html = generateHTML(data);
-    // example of use data.appName
-
-    const fullApp = [appName, + "\n" + appLocation, + "\n" + appBio,
-      appBlog, + "\n" + appProfile, + "\n" + appRepos,
-      appFollowers, + "\n" + appFollowing];
-    console.log(fullApp);
-    
 
     return writeFileAsync("index.html", html);
-    /*
-    fs.writeFile("application.txt", fullApp, function (err) {
-      if (err) {
-        throw err;
+
+
+  }).then(function () {
+    fs.readFile('index.html', 'utf8', (err, profileHtml) => {
+      if (err) throw err;
+
+      conversion({ html: profileHtml }, function (err, result) {
+        if (err) {
+          return console.error(err);
+        }
+        console.log(result.numberOfPages);
+        console.log(result.logs);
+        result.stream.pipe(fs.createWriteStream('profile.pdf'));
+        conversion.kill(); // necessary if you use the electron-server strategy, see bellow for details
       }
-    });
-    */
-  });
-})/*.then(function ({color}) {
-  console.log("Logging data ", data);
-  const html = generate.generateHTML(data);
-
-  return writeFileAsync("index.html", html);
-})
-  .catch(function (err) {
-    console.log(err);
-  });
-*/
-
-
-
-
-
-/*
-
-
-const questions = [
-
-];
-
-function writeToFile(fileName, data) {
-
-}
-
-function init() {
-
-    init();
-};*/
+      );
+    })
+  })
+});
