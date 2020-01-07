@@ -22,3 +22,4 @@ A PDF document titled 'profile.pdf' is generated from an HTML file that contains
 
 The project consists of two JS files and a JSON file, and generates an HTML and PDF from these. 
 
+![](Animated GIF-downsized_large.gif)
