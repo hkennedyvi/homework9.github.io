@@ -1,6 +1,6 @@
 # Github Profile PDF Generator
 
-This is a command line application that allows a user to dynamically generate a PDF from a Github username. 
+This is a command line (CLI) application that allows a user to dynamically generate a PDF from a Github username. 
 
 Using the command node index.js, the user is prompted to provide their username and favorite color from a list. 
 
