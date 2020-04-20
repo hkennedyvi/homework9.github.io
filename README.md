@@ -1,4 +1,4 @@
-# homework9.github.io
+# Github Profile PDF Generator
 
 This is a command line application that allows a user to dynamically generate a PDF from a Github username. 
 
